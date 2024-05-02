@@ -1,6 +1,5 @@
-"""02_cards_v1.
-This is all the automatically available cards
-when starting the program. """
+"""03_output_cards_v1.
+This is the first version of the output cards function."""
 
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
          {"Name": "Vexscream", "Strength": 1, "Speed": 6, "Stealth": 21, "Cunning": 19},
@@ -13,3 +12,7 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
          {"Name": "Froststep", "Strength": 14, "Speed": 14, "Stealth": 17, "Cunning": 4},
          {"Name": "Whispghoul", "Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}]
 
+
+for i in cards:
+    print(f"{i}: {cards[i]}")
+    
