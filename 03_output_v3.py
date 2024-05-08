@@ -1,7 +1,7 @@
-"""03_output_cards_v1.
-This is the first version of the output cards function."""
+"""03_output_cards_v3.
+Changed 03_output_v1 so that it doesn't print out the curly
+brackets and commas in an orderly and easy-to-read layout."""
 
-# List of cards
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
          {"Name": "Vexscream", "Strength": 1, "Speed": 6, "Stealth": 21, "Cunning": 19},
          {"Name": "Dawnmirage", "Strength": 5, "Speed": 15, "Stealth": 18, "Cunning": 22},
@@ -15,6 +15,11 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
 
 
 # Outputs the list of cards
-print("\nMonster names and stats\n")
+print("\nMonster names and stats")
 for monster in cards:
-    print(f"{monster}")
+    # Sorts each stat for each monster downwards without curly brackets or commas
+    print(f"\nName: {monster['Name']}")
+    print(f"Strength: {monster['Strength']}")
+    print(f"Speed: {monster['Speed']}")
+    print(f"Stealth: {monster['Stealth']}")
+    print(f"Cunning: {monster['Cunning']}")
