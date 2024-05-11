@@ -11,3 +11,5 @@ easygui.msgbox("---Welcome to Monster Cards!---")
 name = easygui.enterbox("Please enter your name: ")
 # Combines welcome message and name
 easygui.msgbox(f"Welcome to the Monster Cards, {name}!")
+
+
