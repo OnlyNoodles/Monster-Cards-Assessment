@@ -6,11 +6,11 @@ this program before and if not, it will display the
 instructions component."""
 
 # Ask the user if they have played before
-show_instructions = input("Have you played this game before? :")
+show_instructions = input("Have you used 'Monster Cards' before? :")
 
 # If they say yes, output 'Program Continues'
 if show_instructions == "yes":
-    print("program continues")
+    print("Program continues")
 
 # If they say no, output 'Display Instructions'
 elif show_instructions == "no":
@@ -18,4 +18,4 @@ elif show_instructions == "no":
 
 # Otherwise - show error
 else:
-    print("Please answer 'yes' or 'no'")
+    print("Please answer 'Yes' or 'No'")
