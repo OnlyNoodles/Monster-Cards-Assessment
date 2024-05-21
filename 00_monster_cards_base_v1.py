@@ -9,7 +9,7 @@ Option's Menu is empty besides an option to exit the program."""
 import easygui
 
 # Welcome Message
-easygui.msgbox("---Welcome to Monster Cards!---")
+easygui.msgbox("*** Welcome to Monster Cards! ***")
 # Asks for name
 name = easygui.enterbox("Please enter your name: ")
 # Combines welcome message and name

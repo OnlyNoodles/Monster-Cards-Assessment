@@ -28,10 +28,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.00_monster_cards_base_v2.executor": "Run",
+    "Python.00_monster_cards_base_v3.executor": "Run",
     "Python.01_welcome_message_and_name_v2.executor": "Run",
     "Python.01_yes_no_checker_v2.executor": "Run",
     "Python.01_yes_no_checker_v4.executor": "Run",
     "Python.01_yes_no_checker_v5.executor": "Run",
+    "Python.02_instructions_v1.executor": "Run",
     "Python.03_output_v1.executor": "Run",
     "Python.03_output_v2.executor": "Run",
     "Python.03_output_v4.executor": "Run",
@@ -48,7 +50,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-09665e90c3a7-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15026.15" />
+        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
       </set>
     </attachedChunks>
   </component>

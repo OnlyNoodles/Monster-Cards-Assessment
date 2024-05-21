@@ -17,7 +17,7 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
 # Function for outputting cards
 def output():
     # Outputs the list of cards
-    print("\nMonster names and stats")
+    print("\n*** Monster names and stats ***")
     for monster in cards:
         # Sorts each stat for each monster downwards without curly brackets or commas
         print(f"\nName: {monster['Name']}")
