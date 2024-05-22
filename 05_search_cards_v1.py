@@ -15,4 +15,18 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
 # Ask the user for what combo they want to search
 card_search = input("Type the name of the combo you want to search for (use capitals where necessary): ")
 
+# Checks if card exists
+found_card = None
+for card in cards:
+    if card['Name'] == card_search:
+        found_card = card
+        break
 
+# Display result
+if found_card:
+    # Sorts each stat for searched monster downwards without curly brackets or commas
+    print(f"\nName: {found_card['Name']}")
+    print(f"Strength: {found_card['Strength']}")
+    print(f"Speed: {found_card['Speed']}")
+    print(f"Stealth: {found_card['Stealth']}")
+    print(f"Cunning: {found_card['Cunning']}")
