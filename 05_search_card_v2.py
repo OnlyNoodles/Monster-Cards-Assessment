@@ -1,4 +1,7 @@
-"""05_search_cards_v1."""
+"""05_search_cards_v2.
+Incorporated easygui into the program."""
+
+import easygui
 
 # List of cards
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
@@ -13,7 +16,7 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
          {"Name": "Whispghoul", "Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}]
 
 # Ask the user for what combo they want to search
-card_search = input("Type the name of the combo you want to search for (use capitals where necessary): ")
+card_search = easygui.enterbox("Type the name of the card you want to search for (use capitals where necessary): ")
 
 # Checks if card exists
 found_card = None
@@ -25,8 +28,12 @@ for card in cards:
 # Display result
 if found_card:
     # Sorts each stat for searched monster downwards without curly brackets or commas
-    print(f"\nName: {found_card['Name']}")
-    print(f"Strength: {found_card['Strength']}")
-    print(f"Speed: {found_card['Speed']}")
-    print(f"Stealth: {found_card['Stealth']}")
-    print(f"Cunning: {found_card['Cunning']}")
+    easygui.msgbox(msg=f"\nName: {found_card['Name']}\n"
+                       f"Strength: {found_card['Strength']}\n"
+                       f"Speed: {found_card['Speed']}\n"
+                       f"Stealth: {found_card['Stealth']}\n"
+                       f"Cunning: {found_card['Cunning']}",
+                   title=found_card['Name'])
+
+else:
+    easygui.msgbox(msg="\nCard not found", title="Card not found")
