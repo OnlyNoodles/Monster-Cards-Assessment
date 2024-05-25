@@ -1,4 +1,4 @@
-"""06_add_card_v1."""
+"""06_add_card_v2."""
 
 # List of cards
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
@@ -13,12 +13,25 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
          {"Name": "Whispghoul", "Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}]
 
 
+# Function for number checker
+def number_checker(question):
+    while True:
+        try:
+            value = float(input(question))
+            if 1 <= value <= 25:
+                return value
+            else:
+                print("Please enter a number between 1 and 25.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+
 new_card = {}
 new_card['Name'] = input("Enter the name of your new monster: ")
-new_card['Strength'] = int(input("Enter the new monster's strength number: "))
-new_card['Speed'] = int(input("Enter the new monster's speed number: "))
-new_card['Stealth'] = int(input("Enter the new monster's stealth number: "))
-new_card['Cunning'] = int(input("Enter the new monster's cunning number: "))
+new_card['Strength'] = number_checker("Enter the new monster's strength number (1-25): ")
+new_card['Speed'] = number_checker("Enter the new monster's speed number (1-25): ")
+new_card['Stealth'] = number_checker("Enter the new monster's stealth number (1-25): ")
+new_card['Cunning'] = number_checker("Enter the new monster's cunning number (1-25): ")
 
 cards.append(new_card)
 print("\nCard added successfully")
