@@ -8,7 +8,8 @@ import easygui
 def yes_no(question_text):
     while True:
         # Ask the user if they have played before
-        answer = easygui.enterbox(msg=question_text)
+        answer = easygui.enterbox(msg=question_text,
+                                  title="Have you been here before?")
 
         # If they say yes, output 'Program Continues'
         if answer == "Yes":
@@ -39,7 +40,7 @@ def yes_no(question_text):
         else:
             easygui.msgbox("Please enter either 'Yes' or 'No'")
 
-        easygui.msgbox(f"You entered '{answer}'")
+    easygui.msgbox(f"You entered '{answer}'")
 
 
 # Main routine goes here...

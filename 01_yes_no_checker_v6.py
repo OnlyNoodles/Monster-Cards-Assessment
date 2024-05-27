@@ -9,7 +9,9 @@ import easygui
 # Functions go here...
 def yes_no(question_text):
     # Ask the user if they have played before
-    answer = easygui.buttonbox(msg=question_text, choices=["Yes", "No"])
+    answer = easygui.buttonbox(msg=question_text,
+                               title="Have You Been Here Before",
+                               choices=["Yes", "No"])
 
     # If they say yes, output 'Program Continues'
     if answer == "Yes":
