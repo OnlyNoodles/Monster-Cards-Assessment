@@ -1,27 +1,46 @@
 """01_yes_no_checker_v5.
-Added easygui into 01_yes_no_checker_v5.
-Added an easygui buttonbox so that the user cannot make an error.
-This means that I have gotten rid of the while loop and error
-message."""
+Added easygui into 01_yes_no_checker_v5."""
 
 import easygui
 
 
 # Functions go here...
 def yes_no(question_text):
-    # Ask the user if they have played before
-    answer = easygui.buttonbox(msg=question_text, choices=["Yes", "No"])
+    while True:
+        # Ask the user if they have played before
+        answer = easygui.enterbox(msg=question_text)
 
-    # If they say yes, output 'Program Continues'
-    if answer == "Yes":
-        return answer
+        # If they say yes, output 'Program Continues'
+        if answer == "Yes":
+            easygui.msgbox("Program continues")
+            break
 
-    # If they say no, output 'Display Instructions'
-    elif answer == "No":
-        return answer
+        elif answer == "Y":
+            easygui.msgbox("Program continues")
+            break
 
-    easygui.msgbox(f"You entered '{answer}'")
+        elif answer == "y":
+            easygui.msgbox("Program continues")
+            break
+
+        # If they say no, output 'Display Instructions'
+        elif answer == "No":
+            easygui.msgbox("Display instructions")
+            break
+
+        elif answer == "N":
+            easygui.msgbox("Display instructions")
+            break
+
+        elif answer == "n":
+            easygui.msgbox("Display instructions")
+            break
+
+        else:
+            easygui.msgbox("Please enter either 'Yes' or 'No'")
+
+        easygui.msgbox(f"You entered '{answer}'")
 
 
 # Main routine goes here...
-show_instructions = easygui.msgbox(yes_no("Have you used 'Monster Cards' before?: "))
+show_instructions = easygui.msgbox(yes_no("Have you used 'Monster Cards' before?"))
