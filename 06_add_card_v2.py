@@ -23,7 +23,7 @@ def number_checker(question):
             else:
                 print("Please enter a number between 1 and 25.")
         except ValueError:
-            print("Invalid input. Please enter a valid number.")
+            print("Please enter a number between 1 and 25.")
 
 
 new_card = {}

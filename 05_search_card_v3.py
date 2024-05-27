@@ -20,7 +20,8 @@ def search():
     # Ask the user for what combo they want to search
     card_search = easygui.enterbox(msg="Type the name of the card you want to search for "
                                        "(use capitals where necessary).\n"
-                                   "To go back to the option's menu, enter 'Cancel.'", title="Search Card")
+                                   "To go back to the option's menu, enter 'Cancel.'"
+                                       "Cards are ", title="Search Card")
 
     # Returns user to option's menu if user selects 'Cancel'
     if card_search is None or card_search == "Cancel":

@@ -53,7 +53,7 @@ def output():
 # Main routine
 
 # Welcome Message
-easygui.msgbox("---Welcome to Monster Cards!---")
+easygui.msgbox("***Welcome to Monster Cards!***")
 # Asks for name
 name = easygui.enterbox("Please enter your name: ")
 # Combines welcome message and name
