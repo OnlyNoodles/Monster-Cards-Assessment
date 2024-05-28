@@ -16,13 +16,13 @@ def yes_no(question_text):
     # If they say yes, output 'Program Continues'
     if answer == "Yes":
         easygui.msgbox("Program continues")
-        return answer
 
     # If they say no, output 'Display Instructions'
     elif answer == "No":
         easygui.msgbox("Display instructions")
-        return answer
 
+    easygui.msgbox(f"You entered {answer}.")
 
+    
 # Main routine goes here...
 show_instructions = easygui.msgbox(yes_no("Have you used 'Monster Cards' before?"))
