@@ -17,7 +17,9 @@ def yes_no(question_text):
 # Function to display instructions
 def instructions():
     easygui.msgbox(msg="To output the all cards to the Python console, select 'Output Cards.'\n"
-                       "To search for a card, select 'Search Cards.'\n"
+                       "To search for a card, select 'Search Cards.'"
+                       "Selecting this will also give you a choice to edit the card"
+                       "you have searched for, such as its name and stats.\n"
                        "To add a card, select 'Add Card.'\n"
                        "To delete a card, select 'Delete Card.'\n"
                        "To exit 'Monster Cards,' select 'Exit.'", title="Instructions")

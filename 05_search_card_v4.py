@@ -1,4 +1,6 @@
 # List of cards
+import easygui
+
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
          {"Name": "Vexscream", "Strength": 1, "Speed": 6, "Stealth": 21, "Cunning": 19},
          {"Name": "Dawnmirage", "Strength": 5, "Speed": 15, "Stealth": 18, "Cunning": 22},
@@ -10,19 +12,22 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
          {"Name": "Froststep", "Strength": 14, "Speed": 14, "Stealth": 17, "Cunning": 4},
          {"Name": "Whispghoul", "Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}]
 
-def get_valid_attribute(prompt):
+
+# Function for number checker
+def number_checker(question):
     while True:
         try:
-            value = float(input(prompt))
+            value = float(input(question))
             if 1 <= value <= 25:
                 return value
             else:
                 print("Please enter a number between 1 and 25.")
         except ValueError:
-            print("Invalid input. Please enter a valid number.")
+            print("Please enter a number between 1 and 25.")
+
 
 # Ask the user for what combo they want to search
-card_search = input("Type the name of the card you want to search for (use capitals where necessary): ")
+card_search = easygui.enterbox("Type the name of the card you want to search for (use capitals where necessary): ")
 
 # Checks if card exists
 found_card = None
@@ -33,30 +38,31 @@ for card in cards:
 
 # Display result
 if found_card:
-    # Display the card's stats
-    print(f"\nName: {found_card['Name']}")
-    print(f"Strength: {found_card['Strength']}")
-    print(f"Speed: {found_card['Speed']}")
-    print(f"Stealth: {found_card['Stealth']}")
-    print(f"Cunning: {found_card['Cunning']}")
-
+    # Sorts each stat for searched monster downwards without curly brackets or commas
+    easygui.msgbox(msg=f"\nName: {found_card['Name']}\n"
+                       f"Strength: {found_card['Strength']}\n"
+                       f"Speed: {found_card['Speed']}\n"
+                       f"Stealth: {found_card['Stealth']}\n"
+                       f"Cunning: {found_card['Cunning']}",
+                   title=found_card['Name'])
     # Ask the user if they want to edit the card
-    edit_choice = input("Do you want to edit this card? (Yes/No): ").strip().lower()
-    if edit_choice == 'yes':
+    edit_choice = easygui.buttonbox(msg="Do you want to edit this card?", choices=["Yes", "No"])
+    if edit_choice == "Yes":
         while True:
-            stat_to_edit = input("Which stat do you want to edit? (Name, Strength, Speed, Stealth, Cunning): ").strip().capitalize()
+            stat_to_edit = easygui.buttonbox(msg="Which stat do you want to edit?",
+                                             choices=['Name', 'Strength', 'Speed', 'Stealth', 'Cunning'])
+
             if stat_to_edit == 'Name':
-                new_name = input(f"Enter the new name for the monster: ")
+                new_name = easygui.enterbox(f"Enter the new name for the monster")
                 found_card['Name'] = new_name
-                print(f"Name has been updated to {new_name}.")
+                easygui.msgbox(f"Name has been updated to {new_name}.")
                 break
+
             elif stat_to_edit in ['Strength', 'Speed', 'Stealth', 'Cunning']:
-                new_value = get_valid_attribute(f"Enter the new value for {stat_to_edit} (1-25): ")
+                new_value = number_checker(f"Enter the new value for {stat_to_edit} (1-25): ")
                 found_card[stat_to_edit] = new_value
-                print(f"{stat_to_edit} has been updated to {new_value}.")
+                easygui.msgbox(f"{stat_to_edit} has been updated to {new_value}.")
                 break
-            else:
-                print("Invalid stat name. Please enter one of: Name, Strength, Speed, Stealth, Cunning.")
 
         # Display updated card
         print("\nUpdated card:")

@@ -39,6 +39,7 @@ def yes_no(question_text):
 
         else:
             easygui.msgbox("Please enter either 'Yes' or 'No'")
+            easygui.msgbox(f"You entered '{answer}'")
 
     easygui.msgbox(f"You entered '{answer}'")
 
