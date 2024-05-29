@@ -1,10 +1,14 @@
-"""00_monster_cards_base_v4.
-Added the 'Search Cards' function to 00_monster_cards_v3
-and to the option's menu."""
-
+"""05_search_card_v5.
+Changed the program based on user feedback from Alexander Lau.
+I changed the code to only accept whole numbers as decimals
+is too confusing and makes the stats look overly complicated.
+I have also put the whole function into a while loop so that
+if the user inputs an invalid card, the program will ask again.
+This is the version I will use in 00_monster_cards_base_v4."""
 
 import easygui
 
+# List of cards
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
          {"Name": "Vexscream", "Strength": 1, "Speed": 6, "Stealth": 21, "Cunning": 19},
          {"Name": "Dawnmirage", "Strength": 5, "Speed": 15, "Stealth": 18, "Cunning": 22},
@@ -15,39 +19,6 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
          {"Name": "Rotthing", "Strength": 16, "Speed": 7, "Stealth": 4, "Cunning": 12},
          {"Name": "Froststep", "Strength": 14, "Speed": 14, "Stealth": 17, "Cunning": 4},
          {"Name": "Whispghoul", "Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}]
-
-
-# Yes/no checker function
-def yes_no(question_text):
-    # Ask the user if they have played before
-    answer = easygui.buttonbox(msg=question_text, choices=["Yes", "No"])
-
-    # If user says 'Yes' or 'No', return their answer
-    return answer
-
-
-# Instructions function
-def instructions():
-    easygui.msgbox(msg="To output the all cards to the Python console, select 'Output Cards.'\n"
-                       "To search for a card, select 'Search and Edit Cards.'"
-                       "Selecting this will also give you a choice to edit the card"
-                       "you have searched for, such as its name and stats.\n"
-                       "To add a card, select 'Add Card.'\n"
-                       "To delete a card, select 'Delete Card.'\n"
-                       "To exit 'Monster Cards,' select 'Exit.'", title="Instructions")
-
-
-# Function for outputting cards
-def output():
-    # Outputs the list of cards
-    print("\n*** Monster names and stats ***")
-    for monster in cards:
-        # Sorts each stat for each monster downwards without curly brackets or commas
-        print(f"\nName: {monster['Name']}")
-        print(f"Strength: {monster['Strength']}")
-        print(f"Speed: {monster['Speed']}")
-        print(f"Stealth: {monster['Stealth']}")
-        print(f"Cunning: {monster['Cunning']}")
 
 
 # Function for number checker
@@ -124,36 +95,4 @@ def search_and_edit():
             easygui.msgbox("\nCard not found")
 
 
-# Main routine
-
-# Welcome Message
-easygui.msgbox("***Welcome to Monster Cards!***")
-# Asks for name
-name = easygui.enterbox("Please enter your name: ")
-# Combines welcome message and name
-easygui.msgbox(f"Welcome to the Monster Cards, {name}!")
-
-played_before = yes_no("Have you used 'Monster Cards' before?\n"
-                       "(Select 'Yes' to go to the option's menu.\n "
-                       "Select 'No' to view the instructions.)")
-
-if played_before == "No":
-    instructions()
-
-
-while True:
-    option = easygui.buttonbox(msg="What would you like to do?", title="Option's Menu",
-                               choices=["Display Instructions", "Output Cards", "Search and Edit Cards", "Exit"])
-
-    if option == "Display Instructions":
-        instructions()
-
-    elif option == "Output Cards":
-        output()
-
-    elif option == "Search and Edit Cards":
-        search_and_edit()
-
-    elif option == "Exit":
-        break
-        
+search_and_edit()

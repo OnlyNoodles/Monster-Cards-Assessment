@@ -5,7 +5,7 @@ Turned 03_yes_no_checker_v3 into a function."""
 import easygui
 
 
-# Functions go here...
+# Yes/No Checker function
 def yes_no(question_text):
     # Ask the user if they have played before
     answer = easygui.buttonbox(msg=question_text, choices=["Yes", "No"])
@@ -17,7 +17,7 @@ def yes_no(question_text):
 # Function to display instructions
 def instructions():
     easygui.msgbox(msg="To output the all cards to the Python console, select 'Output Cards.'\n"
-                       "To search for a card, select 'Search Cards.'"
+                       "To search for a card, select 'Search and Edit Cards.'"
                        "Selecting this will also give you a choice to edit the card"
                        "you have searched for, such as its name and stats.\n"
                        "To add a card, select 'Add Card.'\n"

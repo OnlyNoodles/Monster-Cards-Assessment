@@ -1,5 +1,5 @@
-"""03_output_cards_v2.
-Changed 03_output_v1 so that it doesn't print out the curly
+"""04_output_cards_v2.
+Changed 04_output_v1 so that it doesn't print out the curly
 brackets and commas in an orderly and easy-to-read layout."""
 
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},

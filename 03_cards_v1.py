@@ -1,6 +1,6 @@
-"""02_cards_v1.
+"""03_cards_v1.
 This is all the automatically available cards
-when starting the program. """
+when starting the program (stored in a dictionary/list). """
 
 # List of cards
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
