@@ -1,4 +1,6 @@
-"""06_add_card_v2."""
+"""06_add_card_v2.
+Added a number checker function so that the user
+doesn't input any invalid numbers."""
 
 # List of cards
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
@@ -17,7 +19,7 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
 def number_checker(question):
     while True:
         try:
-            value = float(input(question))
+            value = int(input(question))
             if 1 <= value <= 25:
                 return value
             else:

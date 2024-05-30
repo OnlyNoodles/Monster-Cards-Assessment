@@ -1,9 +1,10 @@
-"""05_search_card_v5.
-Changed the program based on user feedback from Alexander Lau.
-I changed the code to only accept whole numbers as decimals
-is too confusing and makes the stats look overly complicated.
-I have also put the whole function into a while loop so that
-if the user inputs an invalid card, the program will ask again."""
+"""05_search_card_v6.
+Based on user feedback from Eleasha Chan,
+I changed the program so that the user can cancel their choice
+if they don't want to edit the card but said they wanted to edit
+by mistake. Also made it so that the user has to type something into
+easygui.enterbox() when changing the name of an existing monster.
+This is the version I will use in 00_monster_cards_base_v4."""
 
 import easygui
 
@@ -67,12 +68,26 @@ def search_and_edit():
                 edit_choice = easygui.buttonbox(msg=f"Do you want to edit {found_card['Name']}?", choices=["Yes", "No"])
                 if edit_choice == "Yes":
                     stat_to_edit = easygui.buttonbox(msg="Which stat do you want to edit?",
-                                                     choices=['Name', 'Strength', 'Speed', 'Stealth', 'Cunning'])
+                                                     choices=['Name', 'Strength', 'Speed',
+                                                              'Stealth', 'Cunning', 'Cancel'])
+
+                    if stat_to_edit == 'Cancel':
+                        break
 
                     if stat_to_edit == 'Name':
-                        new_name = easygui.enterbox(f"Enter the new name for the monster")
-                        found_card['Name'] = new_name
-                        easygui.msgbox(f"Name has been updated to {new_name}.")
+                        while True:
+                            new_name = easygui.enterbox(f"Enter the new name for the monster")
+                            # Check if the name is empty
+                            if new_name:
+                                found_card['Name'] = new_name
+                                easygui.msgbox(f"Name has been updated to {new_name}.")
+                                break
+
+                            elif new_name is None or new_name == "Cancel":
+                                break
+                                
+                            else:
+                                easygui.msgbox("Please enter a name for the monster.")
 
                     elif stat_to_edit in ['Strength', 'Speed', 'Stealth', 'Cunning']:
                         new_value = number_checker(f"Enter the new whole number value for {stat_to_edit} (1-25): ")

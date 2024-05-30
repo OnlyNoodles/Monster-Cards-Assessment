@@ -43,10 +43,12 @@
     "Python.05_search_card_v3.executor": "Run",
     "Python.05_search_card_v4.executor": "Run",
     "Python.05_search_card_v5.executor": "Run",
+    "Python.05_search_card_v6.executor": "Run",
     "Python.05_search_cards_v1.executor": "Run",
     "Python.05_search_cards_v2.executor": "Run",
     "Python.06_add_card_v1.executor": "Run",
     "Python.06_add_card_v2.executor": "Run",
+    "Python.06_add_card_v3.executor": "Run",
     "Python.07_delete_card_v1.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -58,10 +60,39 @@
       <recent name="C:\Users\Kavin Balakrishnan\OneDrive - Middleton Grange School\Yr 12 Work\12DTC\2.7 &amp; 2.8 Programming\Monster Cards Assessment" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="05_search_card_v5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Monster Cards Assessment" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/05_search_card_v5.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.05_search_card_v5" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
+        <option value="bundled-python-sdk-09665e90c3a7-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15026.15" />
       </set>
     </attachedChunks>
   </component>

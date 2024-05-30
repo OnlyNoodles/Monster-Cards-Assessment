@@ -1,6 +1,6 @@
 """00_monster_cards_base_v4.
-Added the 'Search Cards' function to 00_monster_cards_v3
-and to the option's menu."""
+Added the 'Search Cards' function (05_search_cards_v6)
+to 00_monster_cards_v3 and to the option's menu."""
 
 
 import easygui
@@ -97,12 +97,26 @@ def search_and_edit():
                 edit_choice = easygui.buttonbox(msg=f"Do you want to edit {found_card['Name']}?", choices=["Yes", "No"])
                 if edit_choice == "Yes":
                     stat_to_edit = easygui.buttonbox(msg="Which stat do you want to edit?",
-                                                     choices=['Name', 'Strength', 'Speed', 'Stealth', 'Cunning'])
+                                                     choices=['Name', 'Strength', 'Speed',
+                                                              'Stealth', 'Cunning', 'Cancel'])
+
+                    if stat_to_edit == 'Cancel':
+                        break
 
                     if stat_to_edit == 'Name':
-                        new_name = easygui.enterbox(f"Enter the new name for the monster")
-                        found_card['Name'] = new_name
-                        easygui.msgbox(f"Name has been updated to {new_name}.")
+                        while True:
+                            new_name = easygui.enterbox(f"Enter the new name for the monster")
+                            # Check if the name is empty
+                            if new_name:
+                                found_card['Name'] = new_name
+                                easygui.msgbox(f"Name has been updated to {new_name}.")
+                                break
+
+                            elif new_name is None or new_name == "Cancel":
+                                break
+
+                            else:
+                                easygui.msgbox("Please enter a name for the monster.")
 
                     elif stat_to_edit in ['Strength', 'Speed', 'Stealth', 'Cunning']:
                         new_value = number_checker(f"Enter the new whole number value for {stat_to_edit} (1-25): ")
