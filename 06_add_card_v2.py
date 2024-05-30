@@ -1,6 +1,9 @@
 """06_add_card_v2.
-Added a number checker function so that the user
-doesn't input any invalid numbers."""
+Added easygui into 06_add_card_v1.
+Doing this also made it so the user cannot
+input any number below 1, above 25, and decimals."""
+
+import easygui
 
 # List of cards
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
@@ -15,30 +18,21 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
          {"Name": "Whispghoul", "Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}]
 
 
-# Function for number checker
-def number_checker(question):
-    while True:
-        try:
-            value = int(input(question))
-            if 1 <= value <= 25:
-                return value
-            else:
-                print("Please enter a number between 1 and 25.")
-        except ValueError:
-            print("Please enter a number between 1 and 25.")
-
-
 new_card = {}
-new_card['Name'] = input("Enter the name of your new monster: ")
-new_card['Strength'] = number_checker("Enter the new monster's strength number (1-25): ")
-new_card['Speed'] = number_checker("Enter the new monster's speed number (1-25): ")
-new_card['Stealth'] = number_checker("Enter the new monster's stealth number (1-25): ")
-new_card['Cunning'] = number_checker("Enter the new monster's cunning number (1-25): ")
+new_card['Name'] = easygui.enterbox("Enter the name of your new monster: ")
+new_card['Strength'] = easygui.integerbox("Enter the new monster's strength number (whole number of 1-25)",
+                                          upperbound=25, lowerbound=1)
+new_card['Speed'] = easygui.integerbox("Enter the new monster's speed number (whole number of 1-25)",
+                                          upperbound=25, lowerbound=1)
+new_card['Stealth'] = easygui.integerbox("Enter the new monster's stealth number (whole number of 1-25)",
+                                          upperbound=25, lowerbound=1)
+new_card['Cunning'] = easygui.integerbox("Enter the new monster's cunning number (whole number of 11-25)",
+                                          upperbound=25, lowerbound=1)
 
 cards.append(new_card)
-print("\nCard added successfully")
-print(f"\nName: {new_card['Name']}")
-print(f"Strength: {new_card['Strength']}")
-print(f"Speed: {new_card['Speed']}")
-print(f"Stealth: {new_card['Stealth']}")
-print(f"Cunning: {new_card['Cunning']}")
+easygui.msgbox(msg=f"\nName: {new_card['Name']}\n"
+                               f"Strength: {new_card['Strength']}\n"
+                               f"Speed: {new_card['Speed']}\n"
+                               f"Stealth: {new_card['Stealth']}\n"
+                               f"Cunning: {new_card['Cunning']}",
+                           title="Card added successfully")

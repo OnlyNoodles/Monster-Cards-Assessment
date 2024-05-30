@@ -50,19 +50,6 @@ def output():
         print(f"Cunning: {monster['Cunning']}")
 
 
-# Function for number checker
-def number_checker(question):
-    while True:
-        try:
-            value = easygui.integerbox(question)
-            if 1 <= value <= 25:
-                return value
-            else:
-                easygui.msgbox("Please enter a whole number between 1 and 25.")
-        except ValueError:
-            easygui.msgbox("Please enter a whole number between 1 and 25.")
-
-
 # Function for searching for and editing card
 def search_and_edit():
     while True:
@@ -119,7 +106,8 @@ def search_and_edit():
                                 easygui.msgbox("Please enter a name for the monster.")
 
                     elif stat_to_edit in ['Strength', 'Speed', 'Stealth', 'Cunning']:
-                        new_value = number_checker(f"Enter the new whole number value for {stat_to_edit} (1-25): ")
+                        new_value = easygui.integerbox(f"Enter the new whole number value for {stat_to_edit} (1-25): ",
+                                                       upperbound=25, lowerbound=1)
                         found_card[stat_to_edit] = new_value
                         easygui.msgbox(f"{stat_to_edit} has been updated to {new_value}.")
 

@@ -18,19 +18,6 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
          {"Name": "Whispghoul", "Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}]
 
 
-# Function for number checker
-def number_checker(question):
-    while True:
-        try:
-            value = float(easygui.enterbox(question))
-            if 1 <= value <= 25:
-                return value
-            else:
-                easygui.msgbox("Please enter a number between 1 and 25.")
-        except ValueError:
-            easygui.msgbox("Please enter a number between 1 and 25.")
-
-
 def search():
     # Ask the user for what combo they want to search
     card_search = easygui.enterbox("Type the name of the card you want to search for (use capitals where necessary): ")
@@ -65,7 +52,8 @@ def search():
                     break
 
                 elif stat_to_edit in ['Strength', 'Speed', 'Stealth', 'Cunning']:
-                    new_value = number_checker(f"Enter the new value for {stat_to_edit} (1-25): ")
+                    new_value = easygui.integerbox(f"Enter the new value for {stat_to_edit} (1-25): ",
+                                                   upperbound=25, lowerbound=1)
                     found_card[stat_to_edit] = new_value
                     easygui.msgbox(f"{stat_to_edit} has been updated to {new_value}.")
                     break
