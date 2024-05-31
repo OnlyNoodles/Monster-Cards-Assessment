@@ -1,9 +1,6 @@
 """00_monster_cards_base_v6.
 Added the 'Delete Card' function (07_delete_card_v4)
-to 00_monster_cards_v5 and to the option's menu.
-This is the final version of 00_monster_cards_base
-and will therefore be the final version of my base code
-for 'Monster Cards.'"""
+to 00_monster_cards_v5 and to the option's menu."""
 
 
 import easygui
@@ -319,4 +316,3 @@ while True:
     # If user selects 'Exit,' exit the program
     elif option == "Exit":
         break
-        
