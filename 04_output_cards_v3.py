@@ -1,5 +1,8 @@
 """04_output_cards_v3.
-Changed 04_output_v2 into a function."""
+Changed 04_output_cards_v2 into a function.
+This is the version I will use in
+00_monster_cards_base_v3 and the future
+versions of 00_monster_cards_base."""
 
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
          {"Name": "Vexscream", "Strength": 1, "Speed": 6, "Stealth": 21, "Cunning": 19},
@@ -14,7 +17,7 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
 
 
 # Function for outputting cards
-def output():
+def output_cards():
     # Outputs the list of cards
     print("\n*** Monster names and stats ***")
     for monster in cards:
@@ -26,4 +29,4 @@ def output():
         print(f"Cunning: {monster['Cunning']}")
 
 
-output()
+output_cards()

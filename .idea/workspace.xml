@@ -25,43 +25,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.00_monster_cards_base_v2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.00_monster_cards_base_v3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.00_monster_cards_base_v4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.01_welcome_message_and_name_v2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.01_yes_no_checker_v1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.01_yes_no_checker_v2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.01_yes_no_checker_v4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.01_yes_no_checker_v5.executor&quot;: &quot;Run&quot;,
-    &quot;Python.01_yes_no_checker_v6.executor&quot;: &quot;Run&quot;,
-    &quot;Python.02_instructions_v1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.03_output_v1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.03_output_v2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.03_output_v4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.05_search_card_v3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.05_search_card_v4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.05_search_card_v5.executor&quot;: &quot;Run&quot;,
-    &quot;Python.05_search_card_v6.executor&quot;: &quot;Run&quot;,
-    &quot;Python.05_search_cards_v1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.05_search_cards_v2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.06_add_card_v1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.06_add_card_v2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.06_add_card_v3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.07_delete_card_v1.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kavin Balakrishnan/OneDrive - Middleton Grange School/Yr 12 Work/12DTC/2.7 &amp; 2.8 Programming/Monster Cards Assessment&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.00_monster_cards_base_v2.executor": "Run",
+    "Python.00_monster_cards_base_v3.executor": "Run",
+    "Python.00_monster_cards_base_v4.executor": "Run",
+    "Python.01_welcome_message_and_name_v2.executor": "Run",
+    "Python.01_yes_no_checker_v1.executor": "Run",
+    "Python.01_yes_no_checker_v2.executor": "Run",
+    "Python.01_yes_no_checker_v4.executor": "Run",
+    "Python.01_yes_no_checker_v5.executor": "Run",
+    "Python.01_yes_no_checker_v6.executor": "Run",
+    "Python.02_instructions_v1.executor": "Run",
+    "Python.03_output_v1.executor": "Run",
+    "Python.03_output_v2.executor": "Run",
+    "Python.03_output_v4.executor": "Run",
+    "Python.05_search_card_v3.executor": "Run",
+    "Python.05_search_card_v4.executor": "Run",
+    "Python.05_search_card_v5.executor": "Run",
+    "Python.05_search_card_v6.executor": "Run",
+    "Python.05_search_cards_v1.executor": "Run",
+    "Python.05_search_cards_v2.executor": "Run",
+    "Python.06_add_card_v1.executor": "Run",
+    "Python.06_add_card_v2.executor": "Run",
+    "Python.06_add_card_v3.executor": "Run",
+    "Python.06_add_card_v4.executor": "Run",
+    "Python.06_add_card_v5.executor": "Run",
+    "Python.07_delete_card_v1.executor": "Run",
+    "Python.07_delete_card_v2.executor": "Run",
+    "Python.07_delete_card_v3.executor": "Run",
+    "Python.07_delete_card_v4.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Kavin Balakrishnan/OneDrive - Middleton Grange School/Yr 12 Work/12DTC/2.7 & 2.8 Programming/Monster Cards Assessment"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Kavin Balakrishnan\OneDrive - Middleton Grange School\Yr 12 Work\12DTC\2.7 &amp; 2.8 Programming\Monster Cards Assessment" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="05_search_card_v5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="05_search_and_edit_card_v5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Monster Cards Assessment" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,7 +79,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/05_search_card_v5.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Kavin Balakrishnan\OneDrive - Middleton Grange School\Yr 12 Work\12DTC\2.7 &amp; 2.8 Programming\Monster Cards Assessment\05_search_and_edit_card_v5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -85,7 +90,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.05_search_card_v5" />
+        <item itemvalue="Python.05_search_and_edit_card_v5" />
       </list>
     </recent_temporary>
   </component>

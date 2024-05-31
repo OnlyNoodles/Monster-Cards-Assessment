@@ -1,6 +1,8 @@
 """03_cards_v1.
 This is all the automatically available cards
-when starting the program (stored in a dictionary/list). """
+when starting the program (stored in a dictionary/list).
+This is the version I will be using for 00_monster_cards_base_v3
+and future version of 00_monster_cards_base."""
 
 # List of cards
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},

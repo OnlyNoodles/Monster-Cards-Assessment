@@ -1,7 +1,8 @@
-"""06_add_card_v2.
-Added easygui into 06_add_card_v1.
-Doing this also made it so the user cannot
-input any number below 1, above 25, and decimals."""
+"""06_add_card_v3.
+Implemented a while loop so that
+the program will re-ask the user
+if they select 'Cancel' for the
+name or input nothing."""
 
 import easygui
 

@@ -1,6 +1,6 @@
-"""00_monster_cards_base_v4.
-Added the 'Search Cards' function (05_search_cards_v6)
-to 00_monster_cards_v3 and to the option's menu."""
+"""00_monster_cards_base_v5.
+Added the 'Add Card' function (06_add_card_v5)
+to 00_monster_cards_v4 and to the option's menu."""
 
 
 import easygui
@@ -18,7 +18,7 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
          {"Name": "Whispghoul", "Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}]
 
 
-# Yes/no checker function
+# Yes/No Checker function
 def yes_no(question_text):
     # Ask the user if they have played before
     answer = easygui.buttonbox(msg=question_text, choices=["Yes", "No"], title="Been Here Before?")
@@ -136,6 +136,88 @@ def search_and_edit():
             easygui.msgbox(msg="\nCard not found", title="Error")
 
 
+# Function for adding a new card
+def add_card():
+    while True:
+        new_card = {}
+
+        while True:
+            # Ask user to input monster name
+            new_card['Name'] = easygui.enterbox(msg="Enter the name of your new monster.\n"
+                                                "To go back to the option's menu, select 'Cancel.'",
+                                                title="Add New Card's Name")
+
+            # Exit the function if 'Cancel' is selected
+            if new_card['Name'] is None:
+                break
+
+            # Re-ask the question if user inputs nothing
+            elif new_card['Name'].strip() == "":
+                easygui.msgbox(msg="Please enter a name for your monster.", title="Error")
+
+            else:
+                break
+
+        # Ask the user for 'Strength' input
+        new_card['Strength'] = easygui.integerbox(msg=f"Enter a whole number of 1-25 for "
+                                                  f"{new_card['Name']}'s strength number.\n"
+                                                  f"To scrap {new_card['Name']} and go back to the option's menu, "
+                                                  f"select 'Cancel.'",
+                                                  upperbound=25, lowerbound=1, title=f"Add {new_card['Name']}'s "
+                                                                                     f"Strength")
+
+        # Exit the function if 'Cancel' is selected
+        if new_card['Strength'] is None:
+            break
+
+        # Ask the user for 'Speed' input
+        new_card['Speed'] = easygui.integerbox(f"Enter a whole number of 1-25 for "
+                                               f"{new_card['Name']}'s speed number.\n"
+                                               f"To scrap {new_card['Name']} and go back to the option's menu, "
+                                               f"select 'Cancel.'",
+                                               upperbound=25, lowerbound=1, title=f"Add {new_card['Name']}'s "
+                                                                                  f"Speed]")
+
+        # Exit the function if 'Cancel' is selected
+        if new_card['Speed'] is None:
+            break
+
+        # Ask the user for 'Stealth' input
+        new_card['Stealth'] = easygui.integerbox(f"Enter a whole number of 1-25 for "
+                                                 f"{new_card['Name']}'s stealth number.\n"
+                                                 f"To scrap {new_card['Name']} and go back to the option's menu, "
+                                                 f"select 'Cancel.'",
+                                                 upperbound=25, lowerbound=1, title=f"Add {new_card['Name']}'s "
+                                                                                    f"Stealth")
+
+        # Exit the function if 'Cancel' is selected
+        if new_card['Stealth'] is None:
+            break
+
+        # Ask the user for 'Cunning' input
+        new_card['Cunning'] = easygui.integerbox(f"Enter a whole number of 1-25 for "
+                                                 f"{new_card['Name']}'s cunning number.\n"
+                                                 f"To scrap {new_card['Name']} and go back to the option's menu, "
+                                                 f"select 'Cancel.'",
+                                                 upperbound=25, lowerbound=1, title=f"Add {new_card['Name']}'s "
+                                                                                    f"Cunning")
+
+        # Exit the function if 'Cancel' is selected
+        if new_card['Cunning'] is None:
+            break
+
+        # Adds cards to the existing list
+        cards.append(new_card)
+
+        # Outputs the new card's name and stats
+        easygui.msgbox(msg=f"\nName: {new_card['Name']}\n"
+                           f"Strength: {new_card['Strength']}\n"
+                           f"Speed: {new_card['Speed']}\n"
+                           f"Stealth: {new_card['Stealth']}\n"
+                           f"Cunning: {new_card['Cunning']}",
+                       title="Card added successfully")
+
+
 # Main routine
 
 # Welcome Message
@@ -157,7 +239,8 @@ if played_before == "No":
 while True:
     # Ask the user what they want to do
     option = easygui.buttonbox(msg="What would you like to do?", title="Option's Menu",
-                               choices=["Display Instructions", "Output Cards", "Search and Edit Cards", "Exit"])
+                               choices=["Display Instructions", "Output Cards", "Search and Edit Cards",
+                                        "Add Card", "Exit"])
 
     # If user selects 'Display Instructions,' run instructions() function
     if option == "Display Instructions":
@@ -170,6 +253,10 @@ while True:
     # If user selects 'Search and Edit Cards,' run search_and_edit() function
     elif option == "Search and Edit Cards":
         search_and_edit()
+
+    # If user selects 'Add Card,' run add_card() function
+    elif option == "Add Card":
+        add_card()
 
     # If user selects 'Exit,' exit the program
     elif option == "Exit":
