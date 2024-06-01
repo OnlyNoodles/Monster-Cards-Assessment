@@ -36,6 +36,7 @@ played_before = yes_no("Have you used 'Monster Cards' before?")
 # Display Instructions if user selects 'No'
 if played_before == "No":
     instructions()
+    easygui.msgbox(msg="Program continues", title="Program Continues")
 
 # Program continues if user selects 'Yes'
 else:

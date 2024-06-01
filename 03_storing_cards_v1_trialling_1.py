@@ -20,8 +20,9 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
 
 # Trialling 1
 for monster in cards:
-    print(f"\nName: {monster['Name']}")
-    print(f"Strength: {monster['Strength']}")
-    print(f"Speed: {monster['Speed']}")
-    print(f"Stealth: {monster['Stealth']}")
-    print(f"Cunning: {monster['Cunning']}")
+    if monster['Name'] == "Stoneling":
+        print(f"\nName: {monster['Name']}")
+        print(f"Strength: {monster['Strength']}")
+        print(f"Speed: {monster['Speed']}")
+        print(f"Stealth: {monster['Stealth']}")
+        print(f"Cunning: {monster['Cunning']}")
