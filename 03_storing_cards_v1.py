@@ -16,12 +16,3 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
          {"Name": "Rotthing", "Strength": 16, "Speed": 7, "Stealth": 4, "Cunning": 12},
          {"Name": "Froststep", "Strength": 14, "Speed": 14, "Stealth": 17, "Cunning": 4},
          {"Name": "Whispghoul", "Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2}]
-
-
-# Trialling 1
-for monster in cards:
-    print(f"\nName: {monster['Name']}")
-    print(f"Strength: {monster['Strength']}")
-    print(f"Speed: {monster['Speed']}")
-    print(f"Stealth: {monster['Stealth']}")
-    print(f"Cunning: {monster['Cunning']}")

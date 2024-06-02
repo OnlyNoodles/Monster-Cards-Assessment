@@ -1,6 +1,7 @@
 """00_monster_cards_base_v3.
 Added the 'Output Cards' function (04_output_cards_v3)
-to 00_monster_cards_v2 and to the option's menu.
+to 00_monster_cards_v2 and to the option's menu to test it
+against the rest of the program.
 To do this, I also needed to add the list of cards
 (03_cards_v1) so the 'Output Cards' could work.
 I intentionally added the cards at the top before

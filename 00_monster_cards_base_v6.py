@@ -1,6 +1,8 @@
 """00_monster_cards_base_v6.
 Added the 'Delete Card' function (07_delete_card_v4)
-to 00_monster_cards_v5 and to the option's menu.
+to 00_monster_cards_v5 and to the option's menu to test it
+against the rest if the program. Made sure that the
+program follows PEP8 regulations.
 This is the final version of 00_monster_cards_base
 and will therefore be the final version of my base code
 for 'Monster Cards.'"""
@@ -60,8 +62,8 @@ def search_and_edit():
     while True:
         # Ask the user for what combo they want to search
         card_search = easygui.enterbox(msg="Type the name of the card you want to search for "
-                                           "(use capitals where necessary).\n "
-                                           "To go back to the option's menu, select 'Cancel.'",
+                                       "(use capitals where necessary).\n "
+                                       "To go back to the option's menu, select 'Cancel.'",
                                        title="Search for Card")
 
         # Returns user to option's menu if user selects 'Cancel'
@@ -103,29 +105,33 @@ def search_and_edit():
 
                     # If user selects 'Name,' proceed to 'edit name' question
                     elif stat_to_edit == 'Name':
-                        new_name = easygui.enterbox(msg=f"Enter the new name for the monster.\n"
+                        while True:
+                            new_name = easygui.enterbox(msg=f"Enter the new name for {found_card['Name']}.\n"
                                                         f"To go back, select 'Cancel.'",
-                                                    title=f"Edit {found_card['Name']}'s Name")
+                                                        title=f"Edit {found_card['Name']}'s Name")
 
-                        # Check if the name is empty
-                        if new_name:
-                            found_card['Name'] = new_name
-                            easygui.msgbox(msg=f"Name has been updated to {new_name}.",
-                                           title="Name Edited")
+                            # If user selects 'Cancel,' go back to 'edit card' question
+                            if new_name is None or new_name == "Cancel":
+                                break
 
-                        # If user selects 'Cancel,' go back to 'edit card' question
-                        elif new_name is None or new_name == "Cancel":
+                            # Check if the entered name is already taken
+                            if new_name and new_name not in [card['Name'] for card in cards]:
+                                found_card['Name'] = new_name
+                                easygui.msgbox(msg=f"Name has been updated to {new_name}.",
+                                               title="Name Edited")
+                                break
+                            else:
+                                easygui.msgbox(msg=f"The name {new_name} is already taken or invalid. "
+                                                   f"Please enter a unique name.", title="Error")
+
+                        if new_name is None or new_name == "Cancel":
                             continue
-
-                        # If user inputs nothing, show error message
-                        else:
-                            easygui.msgbox(msg="Please enter a name for the monster.", title="Error")
 
                     # If user selects to edit a stat, proceed to 'stat edit' question
                     elif stat_to_edit in ['Strength', 'Speed', 'Stealth', 'Cunning']:
-                        new_value = easygui.integerbox(msg=f"Enter the new whole number value for {stat_to_edit} "
-                                                           f"(1-25).\n To go back, select 'Cancel.'"
-                                                       , upperbound=25, lowerbound=1,
+                        new_value = easygui.integerbox(msg=f"Enter the new whole number integer for {stat_to_edit} "
+                                                       f"(1-25).\n To go back, select 'Cancel.'",
+                                                       upperbound=25, lowerbound=1,
                                                        title=f"Edit {found_card['Name']}'s {stat_to_edit}")
 
                         # If user selects 'Cancel,' go back to 'edit card' question
@@ -133,10 +139,9 @@ def search_and_edit():
                             continue
 
                         # Update card stat
-                        else:
-                            found_card[stat_to_edit] = new_value
-                            easygui.msgbox(msg=f"{stat_to_edit} has been updated to {new_value}.",
-                                           title=f"{stat_to_edit} Edited")
+                        found_card[stat_to_edit] = new_value
+                        easygui.msgbox(msg=f"{stat_to_edit} has been updated to {new_value}.",
+                                       title=f"{stat_to_edit} Edited")
 
                     # Display updated card
                     easygui.msgbox(msg=f"\nName: {found_card['Name']}\n"
@@ -167,17 +172,21 @@ def add_card():
 
             # Exit the function if 'Cancel' is selected
             if new_card['Name'] is None:
-                break
+                return
+
+            # Check if the entered name is already taken
+            if new_card['Name']:
+                if any(monster['Name'] == new_card['Name'] for monster in cards):
+                    easygui.msgbox(msg=f"The name {new_card['Name']} is already taken", title="Error")
+                else:
+                    break
 
             # Re-ask the question if user inputs nothing
             elif new_card['Name'].strip() == "":
                 easygui.msgbox(msg="Please enter a name for your monster.", title="Error")
 
-            else:
-                break
-
         # Ask the user for 'Strength' input
-        new_card['Strength'] = easygui.integerbox(msg=f"Enter a whole number of 1-25 for "
+        new_card['Strength'] = easygui.integerbox(msg=f"Enter a whole number integer kof 1-25 for "
                                                   f"{new_card['Name']}'s strength number.\n"
                                                   f"To scrap {new_card['Name']} and go back to the option's menu, "
                                                   f"select 'Cancel.'",
@@ -189,19 +198,19 @@ def add_card():
             break
 
         # Ask the user for 'Speed' input
-        new_card['Speed'] = easygui.integerbox(msg=f"Enter a whole number of 1-25 for "
+        new_card['Speed'] = easygui.integerbox(msg=f"Enter a whole number integer of 1-25 for "
                                                f"{new_card['Name']}'s speed number.\n"
                                                f"To scrap {new_card['Name']} and go back to the option's menu, "
                                                f"select 'Cancel.'",
                                                upperbound=25, lowerbound=1, title=f"Add {new_card['Name']}'s "
-                                                                                  f"Speed]")
+                                                                                  f"Speed")
 
         # Exit the function if 'Cancel' is selected
         if new_card['Speed'] is None:
             break
 
         # Ask the user for 'Stealth' input
-        new_card['Stealth'] = easygui.integerbox(msg=f"Enter a whole number of 1-25 for "
+        new_card['Stealth'] = easygui.integerbox(msg=f"Enter a whole number integer of 1-25 for "
                                                  f"{new_card['Name']}'s stealth number.\n"
                                                  f"To scrap {new_card['Name']} and go back to the option's menu, "
                                                  f"select 'Cancel.'",
@@ -213,7 +222,7 @@ def add_card():
             break
 
         # Ask the user for 'Cunning' input
-        new_card['Cunning'] = easygui.integerbox(msg=f"Enter a whole number of 1-25 for "
+        new_card['Cunning'] = easygui.integerbox(msg=f"Enter a whole number integer of 1-25 for "
                                                  f"{new_card['Name']}'s cunning number.\n"
                                                  f"To scrap {new_card['Name']} and go back to the option's menu, "
                                                  f"select 'Cancel.'",

@@ -8,6 +8,7 @@ Added titles to all easygui boxes. From my own findings, I made it so
 that user can exit to the 'edit card' question when mid-way through
 editing a stat. Also made it so that the updated card doesn't appear
 when the user selects 'Cancel' mid-way through editing the name of a monster.
+Also made it so user cannot edit the name of a card to a name of an existing card.
 This is the version I will use in 00_monster_cards_base_v4 and the future
 versions of 00_monster_cards_base."""
 
@@ -74,27 +75,31 @@ def search_and_edit():
 
                     # If user selects 'Name,' proceed to 'edit name' question
                     elif stat_to_edit == 'Name':
-                        new_name = easygui.enterbox(msg=f"Enter the new name for the monster.\n"
-                                                    f"To go back, select 'Cancel.'",
-                                                    title=f"Edit {found_card['Name']}'s Name")
+                        while True:
+                            new_name = easygui.enterbox(msg=f"Enter the new name for {found_card['Name']}.\n"
+                                                        f"To go back, select 'Cancel.'",
+                                                        title=f"Edit {found_card['Name']}'s Name")
 
-                        # Check if the name is empty
-                        if new_name:
-                            found_card['Name'] = new_name
-                            easygui.msgbox(msg=f"Name has been updated to {new_name}.",
-                                           title="Name Edited")
+                            # If user selects 'Cancel,' go back to 'edit card' question
+                            if new_name is None or new_name == "Cancel":
+                                break
 
-                        # If user selects 'Cancel,' go back to 'edit card' question
-                        elif new_name is None or new_name == "Cancel":
+                            # Check if the entered name is already taken
+                            if new_name and new_name not in [card['Name'] for card in cards]:
+                                found_card['Name'] = new_name
+                                easygui.msgbox(msg=f"Name has been updated to {new_name}.",
+                                               title="Name Edited")
+                                break
+                            else:
+                                easygui.msgbox(msg=f"The name {new_name} is already taken or invalid. "
+                                                   f"Please enter a unique name.", title="Error")
+
+                        if new_name is None or new_name == "Cancel":
                             continue
-
-                        # If user inputs nothing, show error message
-                        else:
-                            easygui.msgbox(msg="Please enter a name for the monster.", title="Error")
 
                     # If user selects to edit a stat, proceed to 'stat edit' question
                     elif stat_to_edit in ['Strength', 'Speed', 'Stealth', 'Cunning']:
-                        new_value = easygui.integerbox(msg=f"Enter the new whole number value for {stat_to_edit} "
+                        new_value = easygui.integerbox(msg=f"Enter the new whole number integer for {stat_to_edit} "
                                                        f"(1-25).\n To go back, select 'Cancel.'"
                                                        , upperbound=25, lowerbound=1,
                                                         title=f"Edit {found_card['Name']}'s {stat_to_edit}")
@@ -104,10 +109,9 @@ def search_and_edit():
                             continue
 
                         # Update card stat
-                        else:
-                            found_card[stat_to_edit] = new_value
-                            easygui.msgbox(msg=f"{stat_to_edit} has been updated to {new_value}.",
-                                           title=f"{stat_to_edit} Edited")
+                        found_card[stat_to_edit] = new_value
+                        easygui.msgbox(msg=f"{stat_to_edit} has been updated to {new_value}.",
+                                       title=f"{stat_to_edit} Edited")
 
                     # Display updated card
                     easygui.msgbox(msg=f"\nName: {found_card['Name']}\n"

@@ -1,6 +1,7 @@
 """00_monster_cards_base_v4.
 Added the 'Search Cards' function (05_search_cards_v6)
-to 00_monster_cards_v3 and to the option's menu."""
+to 00_monster_cards_v3 and to the option's menu to test it
+against the rest of the program."""
 
 
 import easygui
@@ -57,8 +58,8 @@ def search_and_edit():
     while True:
         # Ask the user for what combo they want to search
         card_search = easygui.enterbox(msg="Type the name of the card you want to search for "
-                                           "(use capitals where necessary).\n "
-                                           "To go back to the option's menu, select 'Cancel.'",
+                                       "(use capitals where necessary).\n "
+                                       "To go back to the option's menu, select 'Cancel.'",
                                        title="Search for Card")
 
         # Returns user to option's menu if user selects 'Cancel'
@@ -100,40 +101,43 @@ def search_and_edit():
 
                     # If user selects 'Name,' proceed to 'edit name' question
                     elif stat_to_edit == 'Name':
-                        new_name = easygui.enterbox(msg=f"Enter the new name for the monster.\n"
+                        while True:
+                            new_name = easygui.enterbox(msg=f"Enter the new name for {found_card['Name']}.\n"
                                                         f"To go back, select 'Cancel.'",
-                                                    title=f"Edit {found_card['Name']}'s Name")
+                                                        title=f"Edit {found_card['Name']}'s Name")
 
-                        # Check if the name is empty
-                        if new_name:
-                            found_card['Name'] = new_name
-                            easygui.msgbox(msg=f"Name has been updated to {new_name}.",
-                                           title="Name Edited")
+                            # If user selects 'Cancel,' go back to 'edit card' question
+                            if new_name is None or new_name == "Cancel":
+                                break
 
-                        # If user selects 'Cancel,' go back to 'edit card' question
-                        elif new_name is None or new_name == "Cancel":
+                            # Check if the entered name is already taken
+                            if new_name and new_name not in [card['Name'] for card in cards]:
+                                found_card['Name'] = new_name
+                                easygui.msgbox(msg=f"Name has been updated to {new_name}.",
+                                               title="Name Edited")
+                                break
+                            else:
+                                easygui.msgbox(msg=f"The name {new_name} is already taken or invalid. "
+                                                   f"Please enter a unique name.", title="Error")
+
+                        if new_name is None or new_name == "Cancel":
                             continue
-
-                        # If user inputs nothing, show error message
-                        else:
-                            easygui.msgbox(msg="Please enter a name for the monster.", title="Error")
 
                     # If user selects to edit a stat, proceed to 'stat edit' question
                     elif stat_to_edit in ['Strength', 'Speed', 'Stealth', 'Cunning']:
-                        new_value = easygui.integerbox(msg=f"Enter the new whole number value for {stat_to_edit} "
-                                                           f"(1-25).\n To go back, select 'Cancel.'"
+                        new_value = easygui.integerbox(msg=f"Enter the new whole number integer for {stat_to_edit} "
+                                                       f"(1-25).\n To go back, select 'Cancel.'"
                                                        , upperbound=25, lowerbound=1,
-                                                       title=f"Edit {found_card['Name']}'s {stat_to_edit}")
+                                                        title=f"Edit {found_card['Name']}'s {stat_to_edit}")
 
                         # If user selects 'Cancel,' go back to 'edit card' question
                         if new_value is None or new_value == "Cancel":
                             continue
 
                         # Update card stat
-                        else:
-                            found_card[stat_to_edit] = new_value
-                            easygui.msgbox(msg=f"{stat_to_edit} has been updated to {new_value}.",
-                                           title=f"{stat_to_edit} Edited")
+                        found_card[stat_to_edit] = new_value
+                        easygui.msgbox(msg=f"{stat_to_edit} has been updated to {new_value}.",
+                                       title=f"{stat_to_edit} Edited")
 
                     # Display updated card
                     easygui.msgbox(msg=f"\nName: {found_card['Name']}\n"

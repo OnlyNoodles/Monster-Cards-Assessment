@@ -1,7 +1,8 @@
 """00_monster_cards_base_v2.
 Added the 'Yes/No Checker' function to the 00_monster_cards_v1
  along with the 'Instructions' function to the main
- routine and the option's menu in case the user forgets
+ routine and the option's menu to test it against
+ the rest of the program, in case the user forgets
  how to use the program and wants to read about how
  to use it again."""
 

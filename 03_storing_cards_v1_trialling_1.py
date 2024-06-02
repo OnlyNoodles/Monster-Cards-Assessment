@@ -5,7 +5,7 @@ attributes as dictionaries.
 This is the version I will be using for 00_monster_cards_base_v3
 and future version of 00_monster_cards_base."""
 
-# List of cards
+# Inner values as dictionaries
 cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
          {"Name": "Vexscream", "Strength": 1, "Speed": 6, "Stealth": 21, "Cunning": 19},
          {"Name": "Dawnmirage", "Strength": 5, "Speed": 15, "Stealth": 18, "Cunning": 22},

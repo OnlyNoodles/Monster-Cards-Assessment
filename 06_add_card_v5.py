@@ -1,6 +1,11 @@
 """06_add_card_v5.
 Turned 06_add_card_v4 into a function.
 Added titles to all easygui boxes.
+Made it so that when the user click 'Cancel'
+when choosing a name, the code breaks safely
+with no error message, which would mean going
+back to the option's menu when tested in the
+base code.
 This is the version I will use in
 00_monster_cards_base_v5 and the future
 versions of 00_monster_cards_base."""
@@ -33,14 +38,18 @@ def add_card():
 
             # Exit the function if 'Cancel' is selected
             if new_card['Name'] is None:
-                break
+                return
+
+            # Check if the entered name is already taken
+            if new_card['Name']:
+                if any(monster['Name'] == new_card['Name'] for monster in cards):
+                    easygui.msgbox(msg=f"The name {new_card['Name']} is already taken", title="Error")
+                else:
+                    break
 
             # Re-ask the question if user inputs nothing
             elif new_card['Name'].strip() == "":
                 easygui.msgbox(msg="Please enter a name for your monster.", title="Error")
-
-            else:
-                break
 
         # Ask the user for 'Strength' input
         new_card['Strength'] = easygui.integerbox(msg=f"Enter a whole number of 1-25 for "
@@ -55,19 +64,19 @@ def add_card():
             break
 
         # Ask the user for 'Speed' input
-        new_card['Speed'] = easygui.integerbox(f"Enter a whole number of 1-25 for "
+        new_card['Speed'] = easygui.integerbox(msg=f"Enter a whole number of 1-25 for "
                                                f"{new_card['Name']}'s speed number.\n"
                                                f"To scrap {new_card['Name']} and go back to the option's menu, "
                                                f"select 'Cancel.'",
                                                upperbound=25, lowerbound=1, title=f"Add {new_card['Name']}'s "
-                                                                                     f"Speed]")
+                                                                                     f"Speed")
 
         # Exit the function if 'Cancel' is selected
         if new_card['Speed'] is None:
             break
 
         # Ask the user for 'Stealth' input
-        new_card['Stealth'] = easygui.integerbox(f"Enter a whole number of 1-25 for "
+        new_card['Stealth'] = easygui.integerbox(msg=f"Enter a whole number of 1-25 for "
                                                  f"{new_card['Name']}'s stealth number.\n"
                                                  f"To scrap {new_card['Name']} and go back to the option's menu, "
                                                  f"select 'Cancel.'",
@@ -79,7 +88,7 @@ def add_card():
             break
 
         # Ask the user for 'Cunning' input
-        new_card['Cunning'] = easygui.integerbox(f"Enter a whole number of 1-25 for "
+        new_card['Cunning'] = easygui.integerbox(msg=f"Enter a whole number integer of 1-25 for "
                                                  f"{new_card['Name']}'s cunning number.\n"
                                                  f"To scrap {new_card['Name']} and go back to the option's menu, "
                                                  f"select 'Cancel.'",
