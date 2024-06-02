@@ -299,10 +299,15 @@ def delete_card():
 
 # Welcome Message
 easygui.msgbox("***Welcome to Monster Cards!***")
-# Asks for name
-name = easygui.enterbox("Please enter your name: ")
-# Combines welcome message and name
-easygui.msgbox(f"Welcome to the Monster Cards, {name}!")
+while True:
+    # Asks for name
+    name = easygui.enterbox("Please enter your name: ")
+    if name is None or name == "":
+        easygui.msgbox("Please enter your name.")
+    else:
+        # Combines welcome message and name
+        easygui.msgbox(f"Welcome to the Monster Cards, {name}!")
+        break
 # Question on whether the user has used the program before
 played_before = yes_no("Have you used 'Monster Cards' before?\n"
                        "(Select 'Yes' to go to the option's menu.\n "
