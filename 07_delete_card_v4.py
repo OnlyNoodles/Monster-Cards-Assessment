@@ -1,5 +1,7 @@
 """07_delete_card_v4.
 Turned 07_delete_card_v3 into a function.
+Changed variable names so that 'delete_card'
+is not used for the name of the variable and the function.
 Added titles for all easygui boxes. This
 is the version I will use in 00_monster_cards_v6."""
 
@@ -22,41 +24,42 @@ cards = [{"Name": "Stoneling", "Strength": 7, "Speed": 1, "Stealth": 25, "Cunnin
 def delete_card():
     while True:
         # Asks the user to input an existing card they want to delete
-        card_delete = easygui.enterbox(msg="Type the name of the card you want to delete "
-                                           "(use capitals where necessary).\n\n"
-                                       "To go back to the option's menu, select 'Cancel.'", title="Delete Card")
+        card_delete_question = easygui.enterbox(msg="Type the name of the card you want to delete "
+                                                    "(use capitals where necessary).\n\n"
+                                                    "To go back to the option's menu, select 'Cancel.'",
+                                                title="Delete Card")
 
         # # Exit the loop if 'Cancel' is selected
-        if card_delete is None:
+        if card_delete_question is None:
             break
 
         # Checks if the card exists
-        delete_card = None
+        card_to_delete = None
         for card in cards:
-            if card['Name'] == card_delete:
-                delete_card = card
+            if card['Name'] == card_delete_question:
+                card_to_delete = card
                 break
 
         # Display searched card
-        if delete_card:
+        if card_to_delete:
             # Sorts each stat for searched monster downwards without curly brackets or commas
-            easygui.msgbox(msg=f"\nBelow are the stats of {delete_card['Name']}, the card you are about delete.\n"
-                           f"\nName: {delete_card['Name']}\n"
-                           f"Strength: {delete_card['Strength']}\n"
-                           f"Speed: {delete_card['Speed']}\n"
-                           f"Stealth: {delete_card['Stealth']}\n"
-                           f"Cunning: {delete_card['Cunning']}", title=f"{delete_card['Name']}'s stats")
+            easygui.msgbox(msg=f"\nBelow are the stats of {card_to_delete['Name']}, the card you are about delete.\n"
+                           f"\nName: {card_to_delete['Name']}\n"
+                           f"Strength: {card_to_delete['Strength']}\n"
+                           f"Speed: {card_to_delete['Speed']}\n"
+                           f"Stealth: {card_to_delete['Stealth']}\n"
+                           f"Cunning: {card_to_delete['Cunning']}", title=f"{card_to_delete['Name']}'s stats")
 
             while True:
                 # Confirm with user if they want to delete
-                confirm_delete = easygui.buttonbox(msg=f"\nAre you sure want to delete {delete_card['Name']}?",
+                confirm_delete = easygui.buttonbox(msg=f"\nAre you sure want to delete {card_to_delete['Name']}?",
                                                    choices=["Yes", "No"], title="Confirm Deletion")
 
                 # If user inputs 'Yes,' delete the card
                 if confirm_delete == "Yes":
-                    cards.remove(delete_card)
-                    easygui.msgbox(msg=f"{delete_card['Name']} has been deleted.",
-                                   title=f"{delete_card['Name']} Deleted")
+                    cards.remove(card_to_delete)
+                    easygui.msgbox(msg=f"{card_to_delete['Name']} has been deleted.",
+                                   title=f"{card_to_delete['Name']} Deleted")
                     break
 
                 # If user inputs 'No,' break
