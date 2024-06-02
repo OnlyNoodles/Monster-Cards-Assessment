@@ -1,11 +1,5 @@
-"""monster_cards_base_v6.
-Added the 'Delete Card' function (07_delete_card_v4)
-to 00_monster_cards_v5 and to the option's menu to test it
-against the rest if the program. Made sure that the
-program follows PEP8 regulations. Added goodbye message.
-This is the final version of 00_monster_cards_base
-and will therefore be the final version of my base code
-for 'Monster Cards.'"""
+"""monster_cards_final_version.
+This is the final version of 'Monster Cards.'"""
 
 
 import easygui
