@@ -186,7 +186,7 @@ def add_card():
                 easygui.msgbox(msg="Please enter a name for your monster.", title="Error")
 
         # Ask the user for 'Strength' input
-        new_card['Strength'] = easygui.integerbox(msg=f"Enter a whole number integer kof 1-25 for "
+        new_card['Strength'] = easygui.integerbox(msg=f"Enter a whole number integer of 1-25 for "
                                                   f"{new_card['Name']}'s strength number.\n"
                                                   f"To scrap {new_card['Name']} and go back to the option's menu, "
                                                   f"select 'Cancel.'",
